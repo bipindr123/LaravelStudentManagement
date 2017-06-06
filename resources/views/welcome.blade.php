@@ -16,7 +16,6 @@
         @include('inc.messages')
         @section('content')
         <h2>WELCOME</h2>
-            <p>This is my body content.</p>
             {!! Form::open(['url' => '/submit']) !!}
               <div class="form-group">
                 {{Form::label('student','Student')}}
@@ -40,6 +39,7 @@
 
             {!! Form::close() !!}
         @endsection
+
 
 
          <div class="container">

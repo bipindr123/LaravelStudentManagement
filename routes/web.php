@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/stuData', 'submitController@getData');
+
 Route::post('/submit', 'submitController@submit');
