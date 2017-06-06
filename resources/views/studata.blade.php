@@ -28,5 +28,9 @@
          <div class="container">
             @yield('content')
         </div>
+        <div>
+          <a href="/" class="btn btn-danger" role="button">Go Back!</a>
+        </div>
+
     </body>
 </html>

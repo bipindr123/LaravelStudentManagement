@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/stuData', 'submitController@getData');
+Route::post('/show', 'submitController@Show');
 
 Route::post('/submit', 'submitController@submit');

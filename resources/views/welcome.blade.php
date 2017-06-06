@@ -35,9 +35,9 @@
               <div>
                 {{Form::submit('SUBMIT',['class'=>"btn btn-primary"])}}
               </div>
-
-
             {!! Form::close() !!}
+            <br>
+            <a href="/stuData" class="btn btn-danger" role="button">Show Data</a>
         @endsection
 
 
