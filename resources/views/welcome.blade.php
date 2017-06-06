@@ -13,8 +13,32 @@
     </head>
     <body>
         <h1>SCHOOL HOME</h1>
+        @include('inc.messages')
         @section('content')
+        <h2>WELCOME</h2>
             <p>This is my body content.</p>
+            {!! Form::open(['url' => '/submit']) !!}
+              <div class="form-group">
+                {{Form::label('student','Student')}}
+                {{Form::text('student', '',[ 'class'=>'form-control', 'placeholder' => 'Name'])}}
+              </div>
+
+              <div class="form-group">
+                {{Form::label('class', 'Class')}}
+                {{Form::text('class', '',[ 'class'=>'form-control', 'placeholder' => 'Enter class'])}}
+              </div>
+
+              <div class="form-group">
+                {{Form::label('division', 'Divison')}}
+                {{Form::text('division', '',[ 'class'=>'form-control', 'placeholder' => 'Enter division'])}}
+              </div>
+
+              <div>
+                {{Form::submit('SUBMIT',['class'=>"btn btn-primary"])}}
+              </div>
+
+
+            {!! Form::close() !!}
         @endsection
 
 
