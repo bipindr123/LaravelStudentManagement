@@ -24,7 +24,7 @@ class submitController extends Controller
 
     return redirect('/')->with('success','DONE!');
   }
-    
+
   public function getData()
   {
     $data = stu_data::all();
