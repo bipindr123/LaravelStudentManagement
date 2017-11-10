@@ -17,7 +17,7 @@
     }
 </style>
 <body>
-<h1>SCHOOL DATABASE HOME</h1>
+<h1>ELIGIBILITY CRITERIA FOR SEE</h1>
 @include('inc.messages')
 @section('content')
     <div class ="content">
@@ -35,21 +35,23 @@
 
             for ($i = 0; $i < 10; $i++) {
                  if($countofclass[$i]>0)
-                    echo "for class $i the number of students are $countofclass[$i] \n <br>" ;
+                    echo "SEMESTER $i has $countofclass[$i] number of students \n <br>" ;
             }
 
 
         @endphp
 
         @if(count($data)>0)
-          <h3>ELIGIBLE FOR SEE</h3>
             @foreach($data as $i)
+              @if((($i->cie1+$i->cie2)/2)>20)
+                <h3>ELIGIBLE FOR SEE</h3>
+              @endif
               @if((($i->cie1+$i->cie2)/2)>20)
 
                 <ul class="list-group">
                   <li class="list-group-item">USN: {{$i->usn}}</li>
                     <li class="list-group-item">Name: {{$i->student}}</li>
-                    <li class="list-group-item">Class: {{$i->class}}</li>
+                    <li class="list-group-item">Semester: {{$i->class}}</li>
                     <li class="list-group-item">Division: {{$i->division}}</li>
                     <li class="list-group-item">Branch: {{$i->branch}}</li>
                     <li class="list-group-item">CIE 1: {{$i->cie1}}</li>
@@ -59,14 +61,16 @@
                 @endif
             @endforeach
             <br>
-            <h3>NOT ELIGIBLE</h3>
             @foreach($data as $i)
               @if((($i->cie1+$i->cie2)/2)<=20)
+                <h3>NOT ELIGIBLE</h3>
+              @endif
+                @if((($i->cie1+$i->cie2)/2)<=20)
 
                 <ul class="list-group">
                   <li class="list-group-item">USN: {{$i->usn}}</li>
                     <li class="list-group-item">Name: {{$i->student}}</li>
-                    <li class="list-group-item">Class: {{$i->class}}</li>
+                    <li class="list-group-item">Semester: {{$i->class}}</li>
                     <li class="list-group-item">Division: {{$i->division}}</li>
                     <li class="list-group-item">Branch: {{$i->branch}}</li>
                     <li class="list-group-item">CIE 1: {{$i->cie1}}</li>

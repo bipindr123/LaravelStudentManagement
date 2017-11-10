@@ -16,6 +16,22 @@
         @include('inc.messages')
         @section('content')
         <h2>WELCOME</h2>
+          <br>
+          {!! Form::open(['url' => '/stuData2']) !!}
+            <div class="form-group">
+              {{Form::label('susn', 'SEARCH BY USN')}}
+              {{Form::text('susn', '',[ 'class'=>'form-control', 'placeholder' => 'Enter search usn'])}}
+            </div>
+
+              <div>
+                {{Form::submit('SEARCH',['class'=>"btn btn-success"])}}
+              </div>
+            {!! Form::close() !!}
+
+            <hr>
+
+            <h2>REGISTER NEW STUDENT</h2>
+
             {!! Form::open(['url' => '/submit']) !!}
 
             <div class="form-group">
@@ -29,7 +45,7 @@
               </div>
 
               <div class="form-group">
-                {{Form::label('class', 'Class')}}
+                {{Form::label('class', 'Semester')}}
                 {{Form::text('class', '',[ 'class'=>'form-control', 'placeholder' => 'Enter class'])}}
               </div>
 
@@ -60,6 +76,12 @@
             {!! Form::close() !!}
             <br>
             <a href="/stuData" class="btn btn-danger" role="button">Show Data</a>
+
+
+
+            <br>
+
+            <br>
         @endsection
 
 

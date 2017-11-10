@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\stu_data;
 
 class submitController extends Controller
@@ -37,5 +38,15 @@ class submitController extends Controller
   {
     $data = stu_data::all();
     return view('/studata')->with('data',$data);
+  }
+
+  public function getData2(Request $request)
+  {
+    $susn = $request->input('susn');
+    $data = DB::table('stu_datas')
+                ->whereRaw('usn = ?',[$susn])
+                ->get();
+    return view('/studata')->with('data',$data);
+
   }
 }
