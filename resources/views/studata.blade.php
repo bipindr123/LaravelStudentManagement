@@ -17,11 +17,11 @@
     }
 </style>
 <body>
-<h1>SCHOOL HOME</h1>
+<h1>SCHOOL DATABASE HOME</h1>
 @include('inc.messages')
 @section('content')
     <div class ="content">
-        <h2>DATA</h2>
+        <h2>STUDENT DATA</h2>
         @php
             $countofclass=[];
 
@@ -38,14 +38,42 @@
                     echo "for class $i the number of students are $countofclass[$i] \n <br>" ;
             }
 
+
         @endphp
+
         @if(count($data)>0)
+          <h3>ELIGIBLE FOR SEE</h3>
             @foreach($data as $i)
+              @if((($i->cie1+$i->cie2)/2)>20)
+
                 <ul class="list-group">
+                  <li class="list-group-item">USN: {{$i->usn}}</li>
                     <li class="list-group-item">Name: {{$i->student}}</li>
                     <li class="list-group-item">Class: {{$i->class}}</li>
                     <li class="list-group-item">Division: {{$i->division}}</li>
+                    <li class="list-group-item">Branch: {{$i->branch}}</li>
+                    <li class="list-group-item">CIE 1: {{$i->cie1}}</li>
+                    <li class="list-group-item">CIE 2: {{$i->cie2}}</li>
+                    <li class="list-group-item">AVG: {{($i->cie1+$i->cie2)/2}}</li>
                 </ul>
+                @endif
+            @endforeach
+            <br>
+            <h3>NOT ELIGIBLE</h3>
+            @foreach($data as $i)
+              @if((($i->cie1+$i->cie2)/2)<=20)
+
+                <ul class="list-group">
+                  <li class="list-group-item">USN: {{$i->usn}}</li>
+                    <li class="list-group-item">Name: {{$i->student}}</li>
+                    <li class="list-group-item">Class: {{$i->class}}</li>
+                    <li class="list-group-item">Division: {{$i->division}}</li>
+                    <li class="list-group-item">Branch: {{$i->branch}}</li>
+                    <li class="list-group-item">CIE 1: {{$i->cie1}}</li>
+                    <li class="list-group-item">CIE 2: {{$i->cie2}}</li>
+                    <li class="list-group-item">AVG: {{($i->cie1+$i->cie2)/2}}</li>
+                </ul>
+                @endif
             @endforeach
         @endif
 

@@ -12,11 +12,17 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1>SCHOOL HOME</h1>
+        <h1>SCHOOL HOME DATABSE</h1>
         @include('inc.messages')
         @section('content')
         <h2>WELCOME</h2>
             {!! Form::open(['url' => '/submit']) !!}
+
+            <div class="form-group">
+              {{Form::label('usn', 'usn')}}
+              {{Form::text('usn', '',[ 'class'=>'form-control', 'placeholder' => 'Enter Class'])}}
+            </div>
+
               <div class="form-group">
                 {{Form::label('student','Student')}}
                 {{Form::text('student', '',[ 'class'=>'form-control', 'placeholder' => 'Name'])}}
@@ -31,6 +37,22 @@
                 {{Form::label('division', 'Divison')}}
                 {{Form::text('division', '',[ 'class'=>'form-control', 'placeholder' => 'Enter division'])}}
               </div>
+
+              <div class="form-group">
+                {{Form::label('branch', 'Branch')}}
+                {{Form::text('branch', '',[ 'class'=>'form-control', 'placeholder' => 'Enter Branch'])}}
+              </div>
+
+              <div class="form-group">
+                {{Form::label('cie1', 'Cie1')}}
+                {{Form::text('cie1', '',[ 'class'=>'form-control', 'placeholder' => 'Enter CIE1'])}}
+              </div>
+
+              <div class="form-group">
+                {{Form::label('cie2', 'Cie2')}}
+                {{Form::text('cie2', '',[ 'class'=>'form-control', 'placeholder' => 'Enter CIE2'])}}
+              </div>
+
 
               <div>
                 {{Form::submit('SUBMIT',['class'=>"btn btn-primary"])}}
