@@ -40,12 +40,12 @@
 
 
         @endphp
+          <h3>ELIGIBLE FOR SEE</h3>
+        
 
         @if(count($data)>0)
             @foreach($data as $i)
-              @if((($i->cie1+$i->cie2)/2)>20)
-                <h3>ELIGIBLE FOR SEE</h3>
-              @endif
+
               @if((($i->cie1+$i->cie2)/2)>20)
 
                 <ul class="list-group">
@@ -61,10 +61,8 @@
                 @endif
             @endforeach
             <br>
-            @foreach($data as $i)
-              @if((($i->cie1+$i->cie2)/2)<=20)
-                <h3>NOT ELIGIBLE</h3>
-              @endif
+              <h3>NOT ELIGIBLE</h3>
+              @foreach($data as $i)
                 @if((($i->cie1+$i->cie2)/2)<=20)
 
                 <ul class="list-group">
