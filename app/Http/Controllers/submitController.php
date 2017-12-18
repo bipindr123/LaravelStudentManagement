@@ -49,4 +49,13 @@ class submitController extends Controller
     return view('/studata')->with('data',$data);
 
   }
+
+  public function getData3(Request $request)
+  {
+    $susn = $request->input('susn');
+    $deleted = DB::delete('delete from stu_datas where usn = ?',[$susn]);
+
+    return redirect('/')->with('success','DONE!');
+
+  }
 }

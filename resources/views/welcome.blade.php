@@ -17,6 +17,9 @@
         @section('content')
         <h2>WELCOME</h2>
           <br>
+          <h3>
+            SEARCH STUDENT DATA
+          </h3>
           {!! Form::open(['url' => '/stuData2']) !!}
             <div class="form-group">
               {{Form::label('susn', 'SEARCH BY USN')}}
@@ -26,7 +29,24 @@
               <div>
                 {{Form::submit('SEARCH',['class'=>"btn btn-success"])}}
               </div>
+
+
             {!! Form::close() !!}
+<br>
+            <h3>
+              DELETE STUDENT DATA
+            </h3>
+            {!! Form::open(['url' => '/stuData3']) !!}
+              <div class="form-group">
+                {{Form::label('susn', 'DELETE BY USN')}}
+                {{Form::text('susn', '',[ 'class'=>'form-control', 'placeholder' => 'Enter search usn'])}}
+              </div>
+                <div>
+                  {{Form::submit('DELETE USN',['class'=>"btn btn-danger"])}}
+                </div>
+
+              {!! Form::close() !!}
+
 
             <hr>
 
@@ -36,7 +56,7 @@
 
             <div class="form-group">
               {{Form::label('usn', 'usn')}}
-              {{Form::text('usn', '',[ 'class'=>'form-control', 'placeholder' => 'Enter Class'])}}
+              {{Form::text('usn', '',[ 'class'=>'form-control', 'placeholder' => 'Enter usn'])}}
             </div>
 
               <div class="form-group">
